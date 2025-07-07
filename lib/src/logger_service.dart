@@ -1,4 +1,4 @@
-import 'dart:async';
+import 'dart:typed_data';
 import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:offline_error_logger/src/models/error_log.dart';
 import 'package:offline_error_logger/src/utils/device_info.dart';
@@ -36,7 +36,7 @@ class LoggerService {
     });
   }
 
-  Future<void> write(String error) async {
+  Future<void> write(String error, {Uint8List? screenshotBytes}) async {
     if (!_isInitialized) throw Exception('LoggerService is not initialized');
 
     final deviceInfo = await DeviceInfoUtil.getDeviceInfo();
@@ -54,7 +54,10 @@ class LoggerService {
 
     final connectivity = await Connectivity().checkConnectivity();
     if (connectivity != ConnectivityResult.none) {
-      await _telegramService.sendMessage(log.toTelegramText());
+      await _telegramService.sendMessage(
+        log.toTelegramText(),
+        screenshotBytes: screenshotBytes,
+      );
     }
   }
 

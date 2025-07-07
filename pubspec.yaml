@@ -1,6 +1,6 @@
 name: offline_error_logger
 description: Offline-first error logger with Telegram reporter for Flutter apps.
-version: 1.0.0
+version: 1.1.1
 
 homepage: https://github.com/ITACHI-oss/offline_error_logger.git
 repository: https://github.com/ITACHI-oss/offline_error_logger.git
@@ -16,8 +16,10 @@ dependencies:
   path_provider: ^2.0.15
   connectivity_plus: ^5.0.2
   device_info_plus: ^9.1.1
-  http: ^1.2.1
+  http: ^1.4.0
   get: ^4.6.6
+  screenshot: ^3.0.0
+  http_parser: ^4.1.2
 
 dev_dependencies:
   flutter_test:

@@ -1,5 +1,5 @@
+import 'dart:typed_data';
 import 'package:offline_error_logger/src/models/error_log.dart';
-
 import 'src/logger_service.dart';
 
 class OfflineErrorLogger {
@@ -19,7 +19,8 @@ class OfflineErrorLogger {
     );
   }
 
-  static Future<void> write(String error) => _service.write(error);
+  static Future<void> write(String error, {Uint8List? screenshotBytes}) =>
+      _service.write(error, screenshotBytes: screenshotBytes);
 
   static Future<List<ErrorLog>> getAll() => _service.getAll();
 

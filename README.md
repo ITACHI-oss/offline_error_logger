@@ -23,4 +23,4 @@ Add to your `pubspec.yaml`:
 
 ```yaml
 dependencies:
-  offline_error_logger: ^1.0.0
+  offline_error_logger: ^1.1.1
